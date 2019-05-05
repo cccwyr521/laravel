@@ -199,7 +199,7 @@
                         <div class="form-group" v-for="(value,index) in gallery_data" :id="'data_'+index">
                             <label class="col-sm-2 control-label">图片描述</label>
                             <input type="hidden" value="">
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <input type="text"  value="" class="form-control" name="gallery[][image_name]">
                                 <span class="help-block"></span>
                             </div>
@@ -256,7 +256,6 @@
                     //获取商品相册列表
                     getGoodsGallery: function(){
                         var that = this;
-
                         $.ajax({
                             url: "/admin/goods/gallery/list/"+$("#goods_id").val(),
                             type: "post",
@@ -272,7 +271,6 @@
                     //删除相册
                     delGoodsGaller: function(id){
                         var that = this;
-
                         $.ajax({
                             url: "/admin/goods/gallery/del/"+id,
                             type: "get",
@@ -302,9 +300,7 @@
                     }
                 }
             })
-
             $(".alert-danger").hide();
-
             $("#btn-save").click(function(){
                 var goods_num = $("input[name=goods_name]").val();
                 var goods_sn = $("input[name=goods_sn]").val();
@@ -312,35 +308,27 @@
                 var market_price = $("input[name=market_price]").val();
                 var goods_num = $("input[name=goods_num]").val();
                 var warn_num = $("input[name=warn_num]").val();
-
                 if(goods_num == ''){
                     $("#error_msg").text('商品名称不能为空');
                     $(".alert-danger").show();
                     return false;
                 }
-
                 if(goods_sn == ''){
                     $("#error_msg").text('商品货号不能为空');
                     $(".alert-danger").show();
                     return false;
                 }
-
                 if(market_price == '' || market_price == ''){
                      $("#error_msg").text('价格不能为空');
                      $(".alert-danger").show();
                      return false;
                 }
-
                 if(goods_num == '' || warn_num == ''){
                      $("#error_msg").text('库存不能为空');
                      $(".alert-danger").show();
                      return false;
                 }
-
             });
-
-
-
             //开始日期
             $("#shop_time").datetimepicker({
                 format: 'yyyy-mm-dd hh:ii:ss',
